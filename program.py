@@ -31,6 +31,8 @@ def compare_nums():
         elif a > num:
             print(f"{name}, ваше число больше загаданного, попробуйте еще разок!")
         else:
+            s = open("storage.txt", "w")
+            s.write(f"Вы угадали за {count} попыток, поздравляем {name}!")
             print(f"Вы угадали за {count} попыток, поздравляем {name}!")
             
             print("Вы хотите начать заново?(д/н)")
