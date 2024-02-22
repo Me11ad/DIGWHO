@@ -4,9 +4,6 @@ import random
 print("Добро пожаловать в числовую угадайку!")
 print("Введите имя!")
 name = input()
-rng = int(input("Введите максимальное число"))
-num = random.randint(1, rng)
-
 
 
 def is_valid(a):
@@ -21,6 +18,10 @@ def checker():
             print(f"A может быть все-таки введем целое число от 1 до {rng}?")
 
 def compare_nums():
+    global rng
+    global num
+    rng = int(input("Введите максимальное число"))
+    num = random.randint(1, rng)
     print(f"Приветствую {name}! Введите число от 1 до {rng}!")
     count = 0
     while True:
@@ -32,7 +33,7 @@ def compare_nums():
             print(f"{name}, ваше число больше загаданного, попробуйте еще разок!")
         else:
             s = open("storage.txt", "w")
-            s.write(f"Вы угадали за {count} попыток, поздравляем {name}!")
+            s.write(f"{name} угадал за {count} попыток число в диапазоне от 1 до {rng}!")
             print(f"Вы угадали за {count} попыток, поздравляем {name}!")
             
             print("Вы хотите начать заново?(д/н)")
@@ -45,6 +46,9 @@ def compare_nums():
                     break
                 break
             break
+
+
+        
             
 
 compare_nums()
